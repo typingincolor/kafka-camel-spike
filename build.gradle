@@ -1,0 +1,39 @@
+group 'info.losd'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.3.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+configurations {
+    all*.exclude group: 'logback'
+    all*.exclude group: 'log4j'
+    all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+}
+
+dependencies {
+    compile 'org.apache.camel:camel-core:2.15.2'
+    compile 'org.apache.camel:camel-spring-boot:2.15.2'
+    compile 'org.apache.camel:camel-netty-http:2.15.2'
+    compile 'org.apache.camel:camel-kafka:2.15.2'
+    compile 'org.scala-lang:scala-library:2.10.4'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+
+    testCompile 'junit:junit:4.12'
+}

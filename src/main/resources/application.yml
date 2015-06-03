@@ -1,0 +1,7 @@
+kafka:
+    server:
+        host: 192.168.59.103
+        port: 32778
+    zookeeper:
+        host: 192.168.59.103
+        port: 32777
